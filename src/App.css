@@ -1,38 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Aladin&family=Alfa+Slab+One&family=Bree+Serif&family=Poppins:wght@600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
+  font-family: "Aladin", sans-serif;
+}
+.App-title {
   text-align: center;
+  font-size: xx-large;
+  font-weight: 400;
+  font-variant: initial;
+  padding-right: 30px;
+}
+.welcome {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+}
+body{
+  background-color: burlywood;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+span {
+  color: rgb(0, 255, 234);
+  padding: 20px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.students-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0 10%;
+  margin: 40px auto 0;
+}
+.list-name {
+  font-size: 30px;
+  text-align: center;
+  color: brown;
+  margin-bottom: 10px;
+}
+.table {
+  width: 70%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  box-shadow: 0 2px 12px rgba(32, 32, 32, 0.37);
+  background: #fafafa;
+}
+.table thead {
+  background-color: rgb(255, 4, 138);
+  text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+.table thead tr th {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  color: rgb(28, 29, 78);
+  opacity: 1;
+  padding: 10px;
+  vertical-align: top;
+  border: 1px solid wheat;
+}
+.table tbody tr td {
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 0.35px;
+  color: rgb(185, 116, 32);
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #dee2e685;
+}
+.table>tbody>tr:hover{
+  color: rgb(59, 19, 39);
+  background-color: cornflowerblue;
+  transform: scale(1.02);
+}
+tr:nth-child(even){
+  background-color: #eeeeee;
+}
+.text-title{
+  font-size: 35px;
+}
+.add-student {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.student-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 350px;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid skyblue;
+  background: rgba(80, 227, 194, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 15px;
+}
+.stu-card {
+  display: flex;
+  justify-content: center;
+}
+.stu-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid skyblue;
+  border-radius: 15px;
+}
+
+.stu-detail > p {
+  display: flex;
+  margin: 1px;
+  gap: 1.7px;
+}
+.btn{
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 768px){
+  .table thead{
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  .table, .table tbody,.table tr,.table td{
+    display: block;
+    width: 100%;
+  }
+  .table tr{
+    margin-bottom: 15px;
+  }
+  .table tbody tr td{
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  .table tr:before{
+    content: attr(data-label);
+    position:absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: left;
   }
 }
