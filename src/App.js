@@ -11,12 +11,15 @@ import { StudentDetail } from "./StudentDetail";
 import { EditStudent } from "./EditStudent";
 
 export default function App() {
+  //manage history using usehistory hook
   const history = useHistory();
-
+ //manage the state change of students using usestate
   const [students, setStudents] = useState({});
+  // fetching data from api using useeffect hooks when the function component is mounted
   useEffect(() => {
     fetch("https://616e488fa83a850017caa8e1.mockapi.io/students")
       .then((res) => res.json())
+      //chage the state of the student state (or) set the data to store in students
       .then((data) => setStudents(data));
   }, []);
   return (
@@ -52,6 +55,8 @@ export default function App() {
         </Toolbar>
       </AppBar>
 
+
+      {/* using switch change the paths */}
       <Switch>
         <Route exact path="/">
           <Welcome />

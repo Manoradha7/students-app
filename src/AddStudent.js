@@ -4,29 +4,36 @@ import TextField from "@mui/material/TextField";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+//validating forms using yup
 const formValidationSchema = Yup.object({
-  id: Yup.number().required(),
-  name: Yup.string().required("name required"),
+  // if id is number it's ok otherwise no and the feild requires a value
+  id: Yup.number()
+  .required("This field is required"),
+  // if name is string it's ok otherwise no and the feild requires a value
+  name: Yup.string()
+  .required("This field is required"),
+  //if the emailid is string and matches the format it's ok otherwise no and the feild requires a value
   emailid: Yup.string()
-    .email()
-    .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, "Pattern not matched")
-    .required(),
-  mobileno: Yup.number()
-    .typeError("That doesn't look like a phone number")
-    .positive("A phone number can't start with a minus")
-    .integer("A phone number can't include a decimal point")
-    .min(8)
-    .required("A phone number is required"),
-  dob: Yup.string()
-    // .date()
-    .matches(
-      /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i,
-      "Pattern not matched"
-    )
-    .required("Date of Birth is required"),
-  address: Yup.string().required(),
+  .email()
+  .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,"Pattern not matched")
+  .required("This field is required"),
+  //if the mobileno is number and the number has minimum eight number and must be an integerit's ok otherwise no and the feild requires a value
+  mobileno:  Yup.number()
+  .typeError("That doesn't look like a phone number")
+  .positive("A phone number can't start with a minus")
+  .integer("A phone number can't include a decimal point")
+  .min(8)
+  .required('A phone number is required'),
+  //if the date is in number and in name format it's ok otherwise no and the feild requires a value
+  dob: Yup.date()
+  .required("This field is required"),
+  // if address is string it's ok otherwise no and the feild requires a value
+  address:  Yup.string()
+  .required("This field is required")
 });
+
 export function AddStudent({ students, setStudents }) {
+  //using formik handle the changes of the form
   const { handleBlur, handleSubmit, values, handleChange, errors, touched } =
     useFormik({
       initialValues: {
@@ -37,17 +44,19 @@ export function AddStudent({ students, setStudents }) {
         dob: "",
         address: "",
       },
+      // calling the validation portion
       validationSchema: formValidationSchema,
+      //When the there is no then only submit the form
       onSubmit: (newStudent) => {
         addStudent(newStudent);
       },
     });
 
   const history = useHistory();
-
+//adding new student
   const addStudent = (newStudent) => {
     console.log(newStudent);
-
+    // adding new student data using POST method  in the api 
     fetch(`https://616e488fa83a850017caa8e1.mockapi.io/students`, {
       method: "POST",
       body: JSON.stringify(newStudent),
@@ -102,10 +111,11 @@ export function AddStudent({ students, setStudents }) {
           value={values.dob}
           id="dob"
           name="dob"
+          type="date"
           onChange={handleChange}
           onBlur={handleBlur}
           error={errors.dob && touched.dob}
-          label="Enter student DOB"
+          
           variant="standard"
         />
         <TextField

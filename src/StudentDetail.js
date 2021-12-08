@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export function StudentDetail() {
+  //geting id from the url
   const { id } = useParams("");
 
   const [student, setStudent] = useState({});
+  // fetching the require student detail in the api
   useEffect(() => {
     fetch(`https://616e488fa83a850017caa8e1.mockapi.io/students/${id}`, {
       method: "GET",

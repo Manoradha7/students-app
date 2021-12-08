@@ -6,8 +6,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
 export function StudentsList({ students, setStudents }) {
-    const history = useHistory();
 
+    const history = useHistory();
+//fetching data from the api 
     const getStudents = () => {
         fetch(`https://616e488fa83a850017caa8e1.mockapi.io/students`, {
           method: "GET",
@@ -17,7 +18,7 @@ export function StudentsList({ students, setStudents }) {
       };
     
       useEffect(getStudents, [setStudents]);
-    
+    //deleting the data from the api
       const deleteStudent = (id) => {
         fetch(`https://616e488fa83a850017caa8e1.mockapi.io/students/${id}`, {
           method: "DELETE",
