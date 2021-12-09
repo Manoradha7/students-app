@@ -73,10 +73,11 @@ export function AddStudent({ students, setStudents }) {
           name="id"
           onChange={handleChange}
           onBlur={handleBlur}
-          error={errors.id && touched.id}
+          error={errors.id&& touched.id&&errors.id}
           label="Enter student Id"
           variant="standard"
         />
+        { errors.id&& touched.id&&errors.id}
         <TextField
           value={values.name}
           id="name"
@@ -87,6 +88,7 @@ export function AddStudent({ students, setStudents }) {
           label="Enter student Name"
           variant="standard"
         />
+        {errors.name&& touched.name&&errors.name}
         <TextField
           value={values.emailid}
           id="emailid"
@@ -97,6 +99,7 @@ export function AddStudent({ students, setStudents }) {
           label="Enter student EmailId"
           variant="standard"
         />
+        {errors.emailid&& touched.emailid&&errors.emailid}
         <TextField
           value={values.mobileno}
           id="mobileno"
@@ -107,6 +110,7 @@ export function AddStudent({ students, setStudents }) {
           label="Enter student Phone Number"
           variant="standard"
         />
+        {errors.mobileno&& touched.mobileno&&errors.mobileno}
         <TextField
           value={values.dob}
           id="dob"
@@ -115,9 +119,9 @@ export function AddStudent({ students, setStudents }) {
           onChange={handleChange}
           onBlur={handleBlur}
           error={errors.dob && touched.dob}
-          
           variant="standard"
         />
+        {errors.dob&& touched.dob&&errors.dob}
         <TextField
           value={values.address}
           id="address"
@@ -128,6 +132,7 @@ export function AddStudent({ students, setStudents }) {
           label="Enter student Address"
           variant="standard"
         />
+        {errors.address&& touched.address&&errors.address}
         <Button type="submit" variant="contained" color="primary">
           Add student
         </Button>

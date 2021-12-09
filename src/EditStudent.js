@@ -98,6 +98,7 @@ function UpdateStudent({ student }) {
           variant="standard"
           required
           />
+{ errors.id&& touched.id&&errors.id}
         <TextField
           value={values.name}
           id="name"
@@ -109,6 +110,7 @@ function UpdateStudent({ student }) {
           variant="standard" 
           required
           />
+          {errors.name&& touched.name&&errors.name}
         <TextField
            value={values.emailid}
            id="emailid"
@@ -120,6 +122,7 @@ function UpdateStudent({ student }) {
           variant="standard"
           required
           />
+          {errors.emailid&& touched.emailid&&errors.emailid}
         <TextField
           value={values.mobileno}
           id="mobileno"
@@ -131,11 +134,11 @@ function UpdateStudent({ student }) {
           variant="standard"
           required
           />
+          {errors.mobileno&& touched.mobileno&&errors.mobileno}
         <TextField
           value={values.dob}
           id="dob"
           name="dob"
-          
           onChange={handleChange}
           onBlur={handleBlur}
           error ={errors.dob&&touched.dob}
@@ -143,6 +146,7 @@ function UpdateStudent({ student }) {
           variant="standard"
           required
           />
+          {errors.dob&& touched.dob&&errors.dob}
         <TextField
           value={values.address}
           id="address"
@@ -154,6 +158,7 @@ function UpdateStudent({ student }) {
           variant="standard"
           required
           />
+          {errors.address&& touched.address&&errors.address}
         <Button
           type="submit"
           variant="contained"
